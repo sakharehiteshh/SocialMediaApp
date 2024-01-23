@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
-import {Search, Person, Chat, Notifications } from "@mui/icons-material"
+import {Search, Person, Chat, Notifications } from "@mui/icons-material";
+import { Logout } from "@mui/icons-material";
 import "./topbar.css";
 import { useContext } from "react";
 import {AuthContext} from "../../context/AuthContext";
@@ -33,7 +34,6 @@ export default function Topbar() {
                 <div className="topbarLinks">
                     <span className="topbarLink">Homepage</span>
                     <span className="topbarLink">Timeline</span>
-                    <span className="topbarLink" onClick={handleClick}>Sign out</span>
                 </div>
                 <div className="topbarIcons">
                     <div className="topbarIconItem">
@@ -47,6 +47,11 @@ export default function Topbar() {
                     <div className="topbarIconItem">
                     <Notifications/>
                     <span className="topbarIconBadge">1</span>
+                    </div>
+                    <div className="topbarIconItem">
+                    <Link to="/" style={{textDecoration:"none"}} >
+                       <span title="Logout" className="topbarLink" onClick={handleClick}><Logout   style={{textDecoration: "none", color: "white"}}/></span>
+                    </Link>
                     </div>
                 </div>
                 <Link to ={`/profile/${user.username}`}>
